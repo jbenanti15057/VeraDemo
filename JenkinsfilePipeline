@@ -10,8 +10,8 @@ pipeline {
         }
       stage('SCA SC') {
          steps {
-	 withCredentials([string(credentialsId: 'SRCCLR_API_TOKEN', variable: 'SRCCLR_API_TOKEN')]) 
-	 echo withCredentials {
+	 withCredentials([string(credentialsId: 'SRCCLR_API_TOKEN', variable: 'SRCCLR_API_TOKEN')])
+	 echo "Credentials are: ${withCredentials}" {
 }
 }
 		powershell """
