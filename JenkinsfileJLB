@@ -2,13 +2,14 @@ pipeline {
     agent any
 
     stages {
-      stage('Build') {
-         steps {
-            // Get some code from a GitHub repository
-            git 'https://github.com/jbenanti15057/VeraDemo'
-            sh 'mvn -ntp package'
-         }
-      }
+    
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                powershell 'mvn package'
+            }
+        }
       stage('SCA SC') {
          steps {
             withCredentials([string(credentialsId: 'SRCCLR_API_TOKEN', variable: 'SRCCLR_API_TOKEN')]) {
