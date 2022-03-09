@@ -7,8 +7,6 @@ pipeline {
                 echo 'Building..'
                 powershell 'mvn package'
             }
-        }
-      
        stage('SCA SC') {
          steps {
             withCredentials([string(credentialsId: 'SRCCLR_API_TOKEN', variable: 'SRCCLR_API_TOKEN')]) {
@@ -41,4 +39,3 @@ pipeline {
 	    }
 	}
     }
-}
