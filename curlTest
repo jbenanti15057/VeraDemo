@@ -18,13 +18,13 @@ pipeline {
                   --file target/verademo.war
                 """
 			}
-    }  stage('Agent SCA via curl') {
+		}
+        stage('Agent SCA via curl') {
             steps {
                 """curl -sSL https://download.sourceclear.com/ci.sh | sh
 		"""
             }
        }
-		}
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
