@@ -23,8 +23,8 @@ pipeline {
             steps {
                 """curl -sSL https://download.sourceclear.com/ci.sh | sh
 		"""
-            }
-       }
+                }
+           }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
