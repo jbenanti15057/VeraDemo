@@ -20,7 +20,8 @@ pipeline {
 			}
     }  stage('Agent SCA via curl') {
             steps {
-                curl -sSL https://download.sourceclear.com/ci.sh | sh
+                """curl -sSL https://download.sourceclear.com/ci.sh | sh
+		"""
             }
        }
 		}
