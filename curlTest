@@ -21,9 +21,7 @@ pipeline {
 	} */
         stage ('Agent SCA Scan') {
 	    steps {
-	        powershell """
 		  curl -sSL https://download.sourceclear.com/ci.sh | sh
-		  """
 	        }
 	}
         stage('Deploy') {
