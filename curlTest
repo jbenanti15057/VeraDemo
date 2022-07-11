@@ -8,7 +8,7 @@ pipeline {
                 powershell 'mvn package'
                  }
 	}
-	stage('Veracode Pipeline Scan') {
+	/* stage('Veracode Pipeline Scan') {
             steps {
                 powershell """
                   curl  https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip -o pipeline-scan.zip
@@ -18,7 +18,7 @@ pipeline {
                   --file target/verademo.war
                 """
 		  }
-	}
+	} */
         stage ('Agent SCA Scan') {
 	    steps {
 	        powershell """
