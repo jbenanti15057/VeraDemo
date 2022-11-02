@@ -16,7 +16,7 @@ pipeline {
                   Set-ExecutionPolicy AllSigned -Scope Process -Force
                   iex ((New-Object System.Net.WebClient).DownloadString('https://download.srcclr.com/ci.ps1')) 
                   srcclr scan --allow-dirty .
-		        //"""
+		        """
              }
          }
 		stage('Veracode Pipeline Scan') {
