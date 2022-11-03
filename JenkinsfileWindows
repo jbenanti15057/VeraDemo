@@ -21,6 +21,7 @@ pipeline {
          }
 	stage('Veracode Pipeline Scan') {
             steps {
+	    withCredentials([string(credentialsId: 'VERACODE_API_ID', variable: 'veracode_api_id'), string(credentialsId: 'VERACODE_API_KEY', variable: 'veracode_api_key')]) {
                 powershell """
                   curl  https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip -o pipeline-scan.zip
                   Expand-Archive -Force -Path pipeline-scan.zip -DestinationPath veracode_scanner
@@ -29,6 +30,7 @@ pipeline {
                   --file target/verademo.war
                 """
 			}
+		}
 	}
         stage('Deploy') {
             steps {
