@@ -22,7 +22,7 @@ pipeline {
        stage('Veracode Sandbox Scan') {
            steps {
 	   withCredentials([usernamePassword(credentialsId: 'd1a99adb-a914-4c42-961c-f144f1aeb339', passwordVariable: 'VERACODE_API_KEY', usernameVariable: 'VERACODE_API_ID')]) {
-              veracode applicationName: 'Verademo-dotnet', criticality: 'High', deleteIncompleteScanLevel: '0', fileNamePattern: '', replacementPattern: '', sandboxName: 'Release Candidate v1.1.1', scanExcludesPattern: '', scanIncludesPattern: '', scanName: 'FromJenkins', teams: 'Demo Team', timeout: 60, uploadIncludesPattern: '**/**.war', vid: '${VERACODE_API_ID}', vkey: '${VERACODE_API_KEY}', waitForScan: true
+              veracode applicationName: 'Verademo-dotnet', criticality: 'High', deleteIncompleteScanLevel: '0', fileNamePattern: '', replacementPattern: '', sandboxName: 'Release Candidate v1.1.1', scanExcludesPattern: '', scanIncludesPattern: '', scanName: 'FromJenkins', teams: 'Demo Team', timeout: 60, uploadIncludesPattern: '**/**.war', vid: "${VERACODE_API_ID}", vkey: "${VERACODE_API_KEY}", waitForScan: true
        	        }
 	}
 }
